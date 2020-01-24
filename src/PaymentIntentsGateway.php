@@ -50,6 +50,31 @@ class PaymentIntentsGateway extends AbstractGateway
     }
 
     /**
+     * Update charge request.
+     * Update the data for a charge after the charge has been created.
+     *
+     *
+     * @param array $parameters
+     * @return \Omnipay\Stripe\Message\Response
+     *
+     */
+    public function updateCharge(array $parameters = array())
+    {
+        return $this->createRequest('\Omnipay\Stripe\Message\UpdateChargeRequest', $parameters);
+    }
+
+    /**
+     * @deprecated 2.3.3:3.0.0 duplicate of \Omnipay\Stripe\Gateway::fetchTransaction()
+     * @see \Omnipay\Stripe\Gateway::fetchTransaction()
+     * @param array $parameters
+     * @return \Omnipay\Stripe\Message\FetchChargeRequest
+     */
+    public function fetchCharge(array $parameters = array())
+    {
+        return $this->createRequest('\Omnipay\Stripe\Message\FetchChargeRequest', $parameters);
+    }
+
+    /**
      * @inheritdoc
      *
      * @return \Omnipay\Stripe\Message\PaymentIntents\CaptureRequest
