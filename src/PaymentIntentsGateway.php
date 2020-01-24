@@ -60,6 +60,16 @@ class PaymentIntentsGateway extends AbstractGateway
     }
 
     /**
+     * @inheritdoc
+     *
+     * @return \Omnipay\Stripe\Message\PaymentIntents\UpdatePaymentIntentRequest
+     */
+    public function update(array $parameters = array())
+    {
+        return $this->createRequest('\Omnipay\Stripe\Message\PaymentIntents\UpdatePaymentIntentRequest', $parameters);
+    }
+
+    /**
      * Confirm a Payment Intent. Use this to confirm a payment intent created by a Purchase or Authorize request.
      *
      * @param array $parameters
