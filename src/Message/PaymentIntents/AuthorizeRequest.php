@@ -345,6 +345,11 @@ class AuthorizeRequest extends AbstractRequest
 
         $data['confirmation_method'] = 'manual';
         $data['capture_method'] = 'manual';
+        
+        if ($this->getParameter('saveCard')) {
+            $data['setup_future_usage'] = 'on_session';
+            $data['save_payment_method'] = 'true';
+        }
 
         $data['confirm'] = $this->getConfirm() ? 'true' : 'false';
 
